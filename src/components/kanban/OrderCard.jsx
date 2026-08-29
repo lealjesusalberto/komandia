@@ -63,7 +63,7 @@ const OrderCard = ({ order }) => {
       style={style}
       {...attributes}
       {...listeners}
-      className={`glass rounded-xl p-4 mb-4 cursor-grab active:cursor-grabbing hover:border-primary/50 transition-colors relative`}
+      className={`animate-fade-in glass rounded-xl p-4 mb-4 cursor-grab active:cursor-grabbing hover:border-primary/50 transition-colors relative`}
     >
       {/* Header */}
       <div className="flex justify-between items-start mb-3">

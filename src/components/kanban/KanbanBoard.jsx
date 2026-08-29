@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndContext, DragOverlay, closestCorners, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { Inbox, ChefHat, CheckCircle2 } from 'lucide-react';
@@ -7,7 +7,7 @@ import OrderCard from './OrderCard';
 import { useOrders } from '../../context/OrderContext';
 
 const KanbanBoard = () => {
-  const { orders, updateOrderStatus } = useOrders();
+  const { orders, updateOrderStatus, addOrder } = useOrders();
   const [activeId, setActiveId] = useState(null);
 
   const sensors = useSensors(

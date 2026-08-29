@@ -6,6 +6,7 @@ import { OrderProvider } from './context/OrderContext';
 import MenuAdmin from './components/menu/MenuAdmin';
 import PublicMenu from './components/menu/PublicMenu';
 import CustomerDisplay from './components/tv/CustomerDisplay';
+import LandingPage from './components/landing/LandingPage';
 
 const AdminLayout = () => (
   <div className="flex h-screen w-full bg-background text-text overflow-hidden">
@@ -19,7 +20,7 @@ const AdminLayout = () => (
       </div>
       
       <nav className="flex-1 px-4 space-y-2">
-        <Link to="/" className="flex items-center p-3 rounded-xl hover:bg-white/5 text-primary bg-primary/10 transition-colors">
+        <Link to="/dashboard" className="flex items-center p-3 rounded-xl hover:bg-white/5 text-primary bg-primary/10 transition-colors">
           <LayoutDashboard size={24} />
           <span className="ml-3 font-medium hidden md:block">Tablero</span>
         </Link>
@@ -52,11 +53,12 @@ const App = () => {
         <Routes>
           {/* Admin routes with Sidebar */}
           <Route element={<AdminLayout />}>
-            <Route path="/" element={<KanbanBoard />} />
+            <Route path="/dashboard" element={<KanbanBoard />} />
             <Route path="/menu" element={<MenuAdmin />} />
           </Route>
           
           {/* Full-screen routes without sidebar */}
+          <Route path="/" element={<LandingPage />} />
           <Route path="/client" element={<PublicMenu />} />
           <Route path="/pantalla" element={<CustomerDisplay />} />
         </Routes>
